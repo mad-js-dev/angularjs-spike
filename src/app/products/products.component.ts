@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./products.component.css']
 })
 
-export class ProductComponent implements OnInit {
+export class ProductsComponent implements OnInit {
 
   selectedProduct: Product;
   
