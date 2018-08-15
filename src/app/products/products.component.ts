@@ -13,10 +13,9 @@ export class ProductsComponent implements OnInit {
 
   selectedProduct: Product;
   
-  products = Product[];
+  products : Product[];
   
-  constructor(private productService:ProductService) { }
-
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.getProducts();
@@ -27,7 +26,7 @@ export class ProductsComponent implements OnInit {
   }
   
   getProducts(): void {
-    this.ProductService.getProducts()
+    this.productService.getProducts()
         .subscribe(products => this.products = products);
   }
 }
