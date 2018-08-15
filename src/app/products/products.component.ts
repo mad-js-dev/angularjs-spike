@@ -10,8 +10,6 @@ import { ProductService } from '../product.service';
 })
 
 export class ProductsComponent implements OnInit {
-
-  selectedProduct: Product;
   
   products : Product[];
   
@@ -20,11 +18,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
   }
-  
-  onSelect(product: Product): void {
-    this.selectedProduct = product;
-  }
-  
+
   getProducts(): void {
     this.productService.getProducts()
         .subscribe(products => this.products = products);
