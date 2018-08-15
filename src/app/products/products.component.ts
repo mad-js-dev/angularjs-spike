@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core
+import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
@@ -21,13 +21,13 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
   }
-  /*
+  
   onSelect(product: Product): void {
     this.selectedProduct = product;
   }
   
   getProducts(): void {
-    this.roductService.getProducts()
+    this.ProductService.getProducts()
         .subscribe(products => this.products = products);
-  }*/
+  }
 }
