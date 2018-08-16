@@ -12,7 +12,9 @@ import { MessageService } from './message.service';
 
 export class ProductService {
   
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) { 
+      
+  }
  
   getProducts(): Observable<Product[]> {
     // TODO: send the message _after_ fetching the products

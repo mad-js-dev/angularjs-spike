@@ -13,17 +13,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     ProductsComponent,
     ProductDetailComponent,
     MessagesComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
