@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+//import { Observable, of } from 'rxjs';
 
 import { Product } from './product';
 import { PRODUCTS } from './mock-products';
@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 
 export class ProductService {
 
-  private let ProductData:Product[] = PRODUCTS;
+  ProductData:Product[] = PRODUCTS;
   
   constructor(private messageService: MessageService) { 
       let db = localStorage.getItem("products-spike");
@@ -22,32 +22,60 @@ export class ProductService {
         localStorage.setItem("products-spike", JSON.stringify(PRODUCTS));
       } else {
         console.log("Data loaded from localstorage");
-        this.productData = JSON.parse(localStorage.getItem("products-spike"));
+        this.ProductData = JSON.parse(localStorage.getItem("products-spike"));
       }
   }
  
-  getProducts(): Observable<Product[]> {
+  getProducts(): Product[] {
     // TODO: send the message _after_ fetching the products
-    this.messageService.add('ProductService: fetched products');
-    return of(this.ProductData);
+    //this.messageService.add('ProductService: fetched products');
+    this.ProductData = this.ProductData.sort(function(a, b) { 
+      return a.id - b.id  ||  a.name.localeCompare(b.name);
+    });
+    return this.ProductData;
   }
   
-  getProduct(id: number): Observable<Product> {
-    // TODO: send the message _after_ fetching the product
-    this.messageService.add(`ProductService: fetched product id=${id}`);
-    return of(this.ProductData.find(product => product.id === id));
+  getProduct(id: number | null): Product {
+    // TODO: send the message _after_ fetching the product  
+    //this.messageService.add(`ProductService: fetched product id=${id}`);
+    console.log(id);
+    if(id!=null) {
+        return this.ProductData.find(product => product.id === id); 
+    } else {
+        return this.addProduct('new product');
+    }
   }
   
-  addProduct(name: string): Observable<Product> {
-    //TODO: add push mesagge
-    this.ProductData.push(name.trim());
-    //this.SaveData();
+  addProduct(name: string): Product {
+    //TODO: add push message
+    let prod = new Product();
+    var i = 0;
+    this.ProductData.find(product => {
+        return (i++ == product.id)?false:true;
+    }); 
+    prod.id = i-1;
+    prod.name = name.trim();
+    this.ProductData.push(prod);
+    
+    this.saveData();
+    return prod;
   }
   
-  setProduct(id: number, name: string): Observable<Product> {
+  setProduct(id: number, name: string): Product {
     //TODO: add push mesagge
     var itemIndex = this.ProductData.findIndex(i => i.id === id);
-    this.ProductData[itemIndex].value = name;
-    //this.SaveData();
+    this.ProductData[itemIndex].name = name;
+    this.saveData();
+    return this.ProductData[itemIndex];
+  }
+  
+  deleteProduct(id: number) {
+    var itemIndex = this.ProductData.findIndex(i => i.id === id);
+    this.ProductData.splice(itemIndex, 1);
+    this.saveData();
+  }
+  
+  saveData():void {
+    localStorage.setItem("products-spike", JSON.stringify(this.ProductData));
   }
 }

@@ -17,20 +17,39 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private location: Location
+    private location: Location,
   ) {}
 
   ngOnInit() {
     this.getProduct();
   }
 
-  getProduct(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.productService.getProduct(id)
-      .subscribe(product => this.product = product);
+  getProduct():void {
+    const id = this.route.snapshot.paramMap.get('id');
+    var intId = Number(id);
+    if(id===null) {
+        this.product = this.productService.getProduct(null);
+    }else{
+        var prod = this.productService.getProduct(intId);
+        console.log(prod);
+        this.product = prod;
+    }
+    
+    
+  }
+  
+  deleteProduct():void {
+    this.productService.deleteProduct(this.product.id);
+    this.goBack();
+  }
+  
+  save(): void {
+    this.productService.setProduct(this.product.id, this.product.name);
+    this.goBack();
   }
   
   goBack(): void {
     this.location.back();
   }
 }
+ 
