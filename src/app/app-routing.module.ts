@@ -7,7 +7,7 @@ import { ProductDetailComponent }  from './product-detail/product-detail.compone
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
   //{ path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: ProductDetailComponent },
   { path: 'new-product', component: ProductDetailComponent },

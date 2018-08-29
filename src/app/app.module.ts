@@ -8,6 +8,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BsNavComponent } from './bs-nav/bs-nav.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ProductsComponent,
     ProductDetailComponent,
     MessagesComponent,
+    BsNavComponent,
   ],
   imports: [
     BrowserModule,

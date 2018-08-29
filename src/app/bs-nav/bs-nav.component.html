@@ -1,0 +1,51 @@
+<!-- <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <ul 
+    class="nav
+    {{ (AlignmentMode == 'left') ?  null : null }}
+    {{ (AlignmentMode == 'center') ?  ' justify-content-center ' : null }}
+    {{ (AlignmentMode == 'right') ?  ' justify-content-end ' : null }}
+    {{ Pills == true ? ' nav-pills ' : null }}
+    {{ Tabs == true ? ' nav-tabs ' : null }}
+    {{ Vertical == true ? ' flex-column ' : null }}
+    {{ VerticalMobile == true ? ' flex-column flex-md-row' : null }}
+    ">
+      <li class="nav-item">
+        <a  routerLinkActive="active" routerLink="/dashboard" class="nav-link disabled" href="#">dashboard</a>
+      </li>
+
+      <li class="nav-item">
+        <a  routerLinkActive="active" routerLink="/new-product" class="nav-link" href="#">new-product</a>
+      </li>
+      <li class="nav-item">
+        <a  routerLinkActive="active" routerLink="/products" class="nav-link" href="#">products</a>
+      </li>
+    </ul>
+</nav>-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav w-100
+        {{ (AlignmentMode == 'left') ?  null : null }}
+        {{ (AlignmentMode == 'center') ?  ' justify-content-center ' : null }}
+        {{ (AlignmentMode == 'right') ?  ' justify-content-end ' : null }}
+        {{ Pills == true ? ' nav-pills ' : null }}
+        {{ Tabs == true ? ' nav-tabs ' : null }}
+        {{ Vertical == true ? ' flex-column ' : null }}
+        {{ VerticalMobile == true ? ' flex-column flex-md-row' : null }}">
+          <li class="nav-item">
+            <a  routerLinkActive="active" routerLink="/dashboard" class="nav-link disabled" href="#">dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a  routerLinkActive="active" routerLink="/new-product" class="nav-link" href="#">new-product</a>
+          </li>
+          <li class="nav-item">
+            <a  routerLinkActive="active" routerLink="/products" class="nav-link" href="#">products</a>
+          </li>
+        </ul>
+      </div>
+    </nav>

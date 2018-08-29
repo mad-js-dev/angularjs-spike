@@ -37,7 +37,7 @@ export class ProductService {
   
   getProduct(id: number | null): Product {
     // TODO: send the message _after_ fetching the product  
-    //this.messageService.add(`ProductService: fetched product id=${id}`);
+    
     console.log(id);
     if(id!=null) {
         return this.ProductData.find(product => product.id === id); 
@@ -76,6 +76,7 @@ export class ProductService {
   }
   
   saveData():void {
+    this.messageService.add(`Products saved`);
     localStorage.setItem("products-spike", JSON.stringify(this.ProductData));
   }
 }
