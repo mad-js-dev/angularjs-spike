@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 
 //import { Observable, of } from 'rxjs';
 
-import { Product } from './product';
-import { PRODUCTS } from './mock-products';
+import { ProductCategory } from './product-category';
+import { PRODUCTS } from './mock-products-category';
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ProductService {
+export class ProductCategoryService {
 
-  ProductData:Product[] = PRODUCTS;
+  ProductData:ProductCategory[] = PRODUCTS;
   
   constructor(private messageService: MessageService) { 
       let db = localStorage.getItem("products-spike");
@@ -26,7 +26,7 @@ export class ProductService {
       }
   }
  
-  getProducts(): Product[] {
+  getProducts(): ProductCategory[] {
     // TODO: send the message _after_ fetching the products
     //this.messageService.add('ProductService: fetched products');
     this.ProductData = this.ProductData.sort(function(a, b) { 
@@ -35,7 +35,7 @@ export class ProductService {
     return this.ProductData;
   }
   
-  getProduct(id: number | null): Product {
+  getProduct(id: number | null): ProductCategory {
     // TODO: send the message _after_ fetching the product  
     
     console.log(id);
@@ -46,9 +46,9 @@ export class ProductService {
     }
   }
   
-  addProduct(name: string): Product {
+  addProduct(name: string): ProductCategory {
     //TODO: add push message
-    let prod = new Product();
+    let prod = new ProductCategory();
     var i = 0;
     this.ProductData.find(product => {
         return (i++ == product.id)?false:true;
@@ -61,7 +61,7 @@ export class ProductService {
     return prod;
   }
   
-  setProduct(id: number, name: string): Product {
+  setProduct(id: number, name: string): ProductCategory {
     //TODO: add push mesagge
     var itemIndex = this.ProductData.findIndex(i => i.id === id);
     this.ProductData[itemIndex].name = name;

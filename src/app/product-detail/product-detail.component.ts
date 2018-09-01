@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Product }         from '../product';
-import { ProductService }  from '../product.service';
+import { ProductCategory } from '../product-category';
+import { ProductCategoryService }  from '../product-category.service';
 
 
 @Component({
@@ -12,11 +12,11 @@ import { ProductService }  from '../product.service';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product;
+  product: ProductCategory;
   
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
+    private productService: ProductCategoryService,
     private location: Location,
   ) {}
 

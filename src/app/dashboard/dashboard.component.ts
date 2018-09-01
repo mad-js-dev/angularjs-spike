@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { ProductCategory } from '../product-category';
+import { ProductCategoryService } from '../product-category.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +8,9 @@ import { ProductService } from '../product.service';
   styleUrls: [ './dashboard.component.scss' ]
 })
 export class DashboardComponent implements OnInit {
-  products: Product[] = [];
+  products: ProductCategory[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductCategoryService) { }
 
   ngOnInit() {
     this.getProducts();
