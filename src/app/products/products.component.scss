@@ -1,10 +1,14 @@
 /* productsComponent's private CSS styles */
+.c-products-list {
+  padding-top: 110px;
+}
 .products {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
+/*
 .products li {
   position: relative;
   cursor: pointer;
@@ -48,4 +52,4 @@
   text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
-}
+}*/

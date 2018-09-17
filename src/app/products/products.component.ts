@@ -11,7 +11,7 @@ import { ProductCategoryService } from '../product-category.service';
 
 export class ProductsComponent implements OnInit {
   
-  products : ProductCategory[];
+  productCategories : ProductCategory[];
   
   constructor(private productService: ProductCategoryService) { }
 
@@ -20,7 +20,8 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.products = this.productService.getProducts();
+    this.productCategories = this.productService.getProducts();
+    console.log(this.productCategories)
   }
   
   
