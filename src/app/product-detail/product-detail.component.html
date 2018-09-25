@@ -1,29 +1,36 @@
 <div class="c-product-detail" *ngIf="product">
 
-  <h2>{{product.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{product.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="product.name" placeholder="name"/>
-    </label>
-  </div>
+  <h2>
+      {{product.name | uppercase}} Details
+      <span><span>id: </span>{{product.id}}</span>
+  </h2>
+  
     <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="formControlRange">Example Range input</label>
-            <input type="range" class="form-control-range" id="formControlRange">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <article class="form-group">
+            <label for="name">Category name</label>
+            <input [(ngModel)]="product.name" name="name" class="form-control" placeholder="Enter name">
+            <small id="name" class="form-text text-muted">Please enter data</small>
+        </article>
+        
+        <article>
+            <header>
+                <h3>Products List</h3>
+                <button (click)="save()" class="btn btn-primary"><i class="fa fa-plus-square"></i></button>
+            </header>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let product-item of product.products; let i = index"  [attr.data-index]="i">
+                  {{product.products[i].name}}
+                  <span class="float-right">{{product.products[i].country}}</span>
+              </li>
+
+            </ul>
+        </article>
+        <article>
+            <div class="btn-group">
+                <button (click)="save()" class="btn btn-primary">Save</button>
+                <button (click)="deleteProduct()" class="btn btn-primary">Delete</button>
+                <button (click)="goBack()" class="btn btn-primary">go back</button>
+            </div>
+        </article>
     </form>
-  <button (click)="save()">Save</button>
-  <button (click)="deleteProduct()">Delete</button>
-  <button (click)="goBack()">go back</button>
 </div>
