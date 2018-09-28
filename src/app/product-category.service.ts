@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 //import { Observable, of } from 'rxjs';
 
 import { ProductCategory } from './product-category';
+import { Product } from './shared/models/product';
 import { PRODUCTS } from './mock-products-category';
 import { MessageService } from './message.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +61,13 @@ export class ProductCategoryService {
     
     this.saveData();
     return prod;
+  }
+  
+  addToProductList(id: number):void {
+    var itemIndex = this.ProductData.findIndex(i => i.id === id);
+    var item = new Product();
+    item.name:"new item", item.country:"asd";
+    this.ProductData[itemIndex].products.push({name: "", country: ""})
   }
   
   setProduct(id: number, name: string): ProductCategory {

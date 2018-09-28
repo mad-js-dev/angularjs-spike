@@ -38,6 +38,10 @@ export class ProductDetailComponent implements OnInit {
     
   }
   
+  addToProductList():void {
+    this.productService.addToProductList(this.product.id);
+  }
+  
   deleteProduct():void {
     this.productService.deleteProduct(this.product.id);
     this.goBack();
