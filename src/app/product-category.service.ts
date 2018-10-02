@@ -66,8 +66,14 @@ export class ProductCategoryService {
   addToProductList(id: number):void {
     var itemIndex = this.ProductData.findIndex(i => i.id === id);
     var item = new Product();
-    item.name:"new item", item.country:"asd";
+    item.name="new item", item.country="asd";
     this.ProductData[itemIndex].products.push({name: "", country: ""})
+  }
+  
+  deleteFromProductList(id: number, position: number):void {
+    var itemIndex = this.ProductData.findIndex(i => i.id === id);
+    item.name="new item", item.country="asd";
+    this.ProductData[itemIndex].products.splice(pos, 1)
   }
   
   setProduct(id: number, name: string): ProductCategory {
